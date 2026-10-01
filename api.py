@@ -58,10 +58,10 @@ def chat(request: ChatRequest):
 
 # Serve root directory for index.html, Style.css, script.js
 base_dir = os.path.dirname(os.path.abspath(__file__))
-app.mount("/", StaticFiles(directory=base_dir, html=True), name="static")
-
+static_dir = os.path.join(base_dir, "static")
+app.mount("/", StaticFiles(directory=static_dir, html=True), name="static")
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("api:app", host="127.0.0.1", port=8000, reload=True)
-
+
