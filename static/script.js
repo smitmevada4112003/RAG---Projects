@@ -306,7 +306,7 @@ async function sendQuestion() {
                     <span></span>
                     <span></span>
                 </div>
-                <span class="thinking-text">${currentSelectedPdf !== 'all' ? `Searching in ${escapeHtml(KB_SOURCE_CONFIG[currentSelectedPdf]?.name || currentSelectedPdf)}...` : 'Searching all documents & synthesizing...'}</span>
+                <span class="thinking-text">Thinking...</span>
             </div>
         </div>
     `;
