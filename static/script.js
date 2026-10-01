@@ -2,7 +2,7 @@
 // AGENTIC RAG STUDIO — INTERACTIVE CLIENT SCRIPT
 // ==========================================================================
 
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = window.location.origin;
 
 // Active Knowledge Source State ('all' by default, or 'python', 'ml', 'java')
 let currentSelectedPdf = "all";
@@ -103,7 +103,7 @@ function startNewChat() {
     `;
 
     showToast("Started fresh conversation session");
-    
+
     // Close sidebar on mobile if open
     const sidebar = document.getElementById("sidebar");
     if (sidebar) sidebar.classList.remove("open");
@@ -160,7 +160,7 @@ async function copyToClipboard(text, btnElement) {
 // Format Markdown with code blocks and styling
 function formatMarkdown(text) {
     if (!text) return "";
-    
+
     // Use marked library if loaded
     if (typeof marked !== "undefined" && typeof marked.parse === "function") {
         try {
@@ -342,7 +342,7 @@ async function sendQuestion() {
         // 4. Render Bot Answer
         const botRow = document.createElement("div");
         botRow.className = "message-row bot";
-        
+
         // Escape raw text for the data attribute copy
         const safeAnswer = escapeHtml(answerText);
         const activeScopeName = currentSelectedPdf !== 'all' ? (KB_SOURCE_CONFIG[currentSelectedPdf]?.name || 'Filtered') : 'Universal Grounded';
@@ -416,7 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSourceSelectionUI();
 
     const inputElement = document.getElementById("question");
-    
+
     if (inputElement) {
         // Auto-expand textarea
         inputElement.addEventListener("input", () => {
