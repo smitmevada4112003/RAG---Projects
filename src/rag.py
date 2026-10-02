@@ -66,7 +66,6 @@ else:
 # Reference PDF files
 pdf_files = [
     "Python_100_Interview_Questions.pdf",
-    "python_reference.pdf",
     "machine_learning_reference.pdf",
     "java_reference.pdf"
 ]
@@ -234,7 +233,7 @@ def retrieve_node(state: State):
         elif "ml" in sel_clean or "machine" in sel_clean:
             pdf_filter = {"source": "machine_learning_reference.pdf"}
         elif "python" in sel_clean:
-            pdf_filter = {"source": {"$in": ["Python_100_Interview_Questions.pdf", "python_reference.pdf"]}}
+            pdf_filter = {"source": {"$in": ["Python_100_Interview_Questions.pdf"]}}
         else:
             pdf_filter = {"source": selected_pdf}
 
@@ -265,7 +264,7 @@ def generate_node(state: State):
         elif "ml" in sel_clean or "machine" in sel_clean:
             scope_desc = "Machine Learning Reference (machine_learning_reference.pdf)"
         elif "python" in sel_clean:
-            scope_desc = "Python Reference (Python_100_Interview_Questions.pdf & python_reference.pdf)"
+            scope_desc = "Python Reference (Python_100_Interview_Questions.pdf)"
         else:
             scope_desc = f"{selected_pdf} Reference"
 
