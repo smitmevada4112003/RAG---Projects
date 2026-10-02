@@ -1,4 +1,4 @@
-﻿.env
+.env
 .env.*
 !.env.example
 __pycache__/
@@ -9,5 +9,4 @@ venv/
 chroma_db/
 faiss_index/
 uploaded_pdfs/
-*.pdf
 node_modules/
